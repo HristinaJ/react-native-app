@@ -74,7 +74,7 @@ export default class List extends Component {
     const { comments } = this.state;
     return (
       <View style={styles.container}>
-        {/* Scrollable list */}
+      {/* Scrollable list */}
         <ScrollView
           ref={(scrollView) => { this._scrollView = scrollView; }}
           refreshControl={
@@ -84,7 +84,7 @@ export default class List extends Component {
             />
           }
         >
-          {/* Render each comment with Comment component */}
+        {/* Render each comment with Comment component */}
           {comments.map((comment, index) => <Comment comment={comment} key={index} />)}
         </ScrollView>
         {/* Comment input box */}

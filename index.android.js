@@ -6,7 +6,7 @@ import { AppRegistry } from 'react-native';
 //   TabNavigator
 // } from 'react-navigation';
 import Index from './app/components/Index';
-import App from './app/src/app';
+import App from './app/components/app';
 
 
-AppRegistry.registerComponent('NewApp', () => Index);
+AppRegistry.registerComponent('NewApp', () => App);

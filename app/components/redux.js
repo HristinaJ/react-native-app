@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 /*const API = Platform.OS === 'android'
   ? 'http://127.0.0.1:3000/v1'
   : 'http://localhost:3000/v1';*/
-const API = 'http://10.0.2.2:3000/v1';
+const API1 = 'http://10.0.2.2:3000/v1';
 
 export const apiMiddleware = store => next => action => {
   // Pass all actions through by default
@@ -14,7 +14,7 @@ export const apiMiddleware = store => next => action => {
       // Dispatch GET_MOVIE_DATA_LOADING to update loading state
       store.dispatch({type: 'GET_USER_DATA_LOADING'});
       // Make API call and dispatch appropriate actions when done
-      fetch(`${API}/users.json`)
+      fetch(`${API1}/users.json`)
         .then(response => response.json())
         .then(data => next({
           type: 'GET_USER_DATA_RECEIVED',

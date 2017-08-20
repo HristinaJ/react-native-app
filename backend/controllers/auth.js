@@ -10,6 +10,8 @@ const transformFacebookProfile = (profile) => ({
 	oauth_id: profile.id,
   	name: profile.name,
   	avatar: profile.picture.data.url,
+  	//email: profile.email,
+  	//login.username: profile.displayName,
 });
 
 // Transform Google profile into user object
@@ -40,6 +42,8 @@ const createOrGetUserFromDatabase = async (userProfile) => {
       oauth_id: userProfile.oauth_id,
       name: userProfile.name,
       avatar: userProfile.avatar,
+      //email: userProfile.email,
+      //login.username: profile.displayName,
     });
     await user.save();
   }

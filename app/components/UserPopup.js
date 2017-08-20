@@ -235,7 +235,7 @@ export default class UserPopup extends Component {
     }
     return (
       <View style={styles.container}>
-        {/* Closes popup if user taps on semi-transparent backdrop */}
+      {/* Closes popup if user taps on semi-transparent backdrop */}
         <TouchableWithoutFeedback onPress={this.props.onClose}>
           <Animated.View style={[styles.backdrop, { opacity: this.state.opacity }]}/>
         </TouchableWithoutFeedback>
@@ -246,16 +246,14 @@ export default class UserPopup extends Component {
             // Animates position on the screen
             transform: [{ translateY: this.state.position }, { translateX: 0 }]
           }]}
-        >
-
-          {/* Content */}
+        >{/* Content */}
           <View style={styles.content}>
-            {/* Movie poster, title and place */}
+          {/* Movie poster, title and place */}
             <View
               style={[styles.userContainer, this.getStyles().userContainer]}
               {...this._panResponder.panHandlers}
             >
-              {/* Poster */}
+            {/* Poster */}
               <View style={[styles.imageContainer, this.getStyles().imageContainer]}>
                 <Image source={{ uri: picture.large }} style={styles.image} />
               </View>
@@ -269,7 +267,7 @@ export default class UserPopup extends Component {
             </View>
             {/* Showtimes */}
             <View>
-              {/* Day */}
+            {/* Day */}
               <Text style={styles.sectionHeader}>Day</Text>
               {/* TODO: Add day options here */}
               <Options
@@ -287,7 +285,6 @@ export default class UserPopup extends Component {
               />
             </View>
           </View>
-
           {/* Footer */}
           <View style={styles.footer}>
             <TouchableHighlight

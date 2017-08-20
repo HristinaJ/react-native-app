@@ -9,19 +9,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
-
-/*
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  Text,
-  View,
-  StyleSheet,
-  Image
-} from 'react-native';
-import PropTypes from 'prop-types';
-import { defaultStyles } from './styles';
-import LoginForm from './LoginForm';*/
+//import { defaultStyles } from '../styles';
+//import LoginForm from './LoginForm';
 
 export default class Login extends Component {
     constructor(props, context) {
@@ -65,18 +54,6 @@ export default class Login extends Component {
         }
       };
 
-      /*handleOpenURL = ({ url }) => {
-          // Extract stringified user string out of the URL
-          const [, user_string] = url.match(/user=([^#]+)/);
-          this.setState({
-            // Decode the user string and parse it into JSON
-            user: JSON.parse(decodeURI(user_string))
-          });
-          if (Platform.OS === 'ios') {
-            SafariView.dismiss();
-          }
-        };*/
-
      // Handle Login with Facebook button tap
       loginWithFacebook = () => this.openURL('http://10.0.2.2:3000/auth/facebook');
 
@@ -101,8 +78,7 @@ export default class Login extends Component {
   render() {
     return (
           <View style={styles.container}>
-
-            <View style={styles.content}>
+          <View style={styles.content}>
               <Text style={styles.header}>
                 Welcome Stranger!
               </Text>
@@ -114,7 +90,6 @@ export default class Login extends Component {
                 to the awesomness
               </Text>
             </View>
-
             <View style={styles.buttons}>
               <Icon.Button
                 name="facebook"
@@ -133,7 +108,6 @@ export default class Login extends Component {
                 Or with Google
               </Icon.Button>
             </View>
-
           </View>
         );
       }
@@ -178,9 +152,9 @@ export default class Login extends Component {
         margin: 20,
         marginBottom: 30,
       },
-    });
+});
 
- /* render() {
+/*render() {
     return (
         
         <View style={styles.container} >
@@ -198,37 +172,39 @@ export default class Login extends Component {
          );
   }
 }
+      /*container :{
+          flex: 1,
+          backgroundColor:'#34495e'
 
-Login.propTypes = {
-    onLoginStarted: PropTypes.func.isRequired,
-};
+      },*/
+      /*logoContainer :{
+          alignItems: 'center',
+          flexGrow: 1,
+          justifyContent:'center'
+          },
+      logo :{
+          width: 100,
+          height: 100
+      },
+      textStyle:{
+          //...defaultStyles.text,
+          fontSize: 20,
+          fontWeight: 'bold',
+          color : 'white',
+          marginTop: 10,
+          textAlign:'center',
+          opacity: 0.9
+      }
+    });*/
 
-
-const styles=StyleSheet.create({
-container :{
-    flex: 1,
-    backgroundColor:'#34495e'
-    
-},
-logoContainer :{
-    alignItems: 'center',
-    flexGrow: 1,
-    justifyContent:'center'
-    },
-logo :{
-    width: 100,
-    height: 100
-},
-textStyle:{
-    ...defaultStyles.text,
-    fontSize: 20,
-    fontWeight: 'bold',
-    color : 'white',
-    marginTop: 10,
-    textAlign:'center',
-    opacity: 0.9
-}
-});
-
-
-AppRegistry.registerComponent('Login', () => Login);*/
+    /*handleOpenURL = ({ url }) => {
+              // Extract stringified user string out of the URL
+              const [, user_string] = url.match(/user=([^#]+)/);
+              this.setState({
+                // Decode the user string and parse it into JSON
+                user: JSON.parse(decodeURI(user_string))
+              });
+              if (Platform.OS === 'ios') {
+                SafariView.dismiss();
+              }
+            };*/

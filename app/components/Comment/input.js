@@ -44,7 +44,6 @@ export default class Input extends Component {
         behavior='position'
       >
         <View style={styles.container}>
-          {/* Comment input field */}
           <TextInput
             placeholder="Add a comment..."
             keyboardType="twitter" // keyboard with no return button
@@ -54,12 +53,10 @@ export default class Input extends Component {
             onChangeText={this.onChangeText} // handle input changes
             onSubmitEditing={this.onSubmitEditing} // handle submit event
           />
-          {/* Post button */}
           <TouchableOpacity
             style={styles.button}
             onPress={this.submit}
           >
-            {/* Apply inactive style if no input */}
             <Text style={[styles.text, !this.state.text ? styles.inactive : []]}>Post</Text>
           </TouchableOpacity>
         </View>

@@ -1,3 +1,4 @@
+/*
 import React, { Component } from 'react';
 import {
    AppRegistry,
@@ -96,3 +97,4 @@ const styles=StyleSheet.create({
  });
 
 AppRegistry.registerComponent('LoginForm', () => LoginForm);
+*/

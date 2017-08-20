@@ -149,7 +149,6 @@ import {
     Text,
     StyleSheet,
     TextInput } from 'react-native';
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -177,8 +176,6 @@ searchIcon: {
     padding: 10,
 }
 });
-
-
 const Header = (props) => (
   <View>
   <View style={styles.container}>
@@ -190,5 +187,4 @@ const Header = (props) => (
      </View>
   </View>
 );
-
 export default Header;*/
