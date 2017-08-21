@@ -1,4 +1,3 @@
-/*
 import React, { Component } from 'react';
 import {
    AppRegistry,
@@ -10,9 +9,11 @@ import {
    TouchableHighlight,
    Button
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import PropTypes from 'prop-types';
+import { Users } from '../Users';
 
-export default class LoginForm extends Component {
+export default class LoginForm1 extends Component {
    constructor(props, context) {
          super(props, context);
    }
@@ -30,9 +31,13 @@ export default class LoginForm extends Component {
                      name: 'users'
                  });
              }
+        /*static navigationOptions = {
+            title: 'Login',
+          };*/
 
   render() {
-      const { Users } = this.props.navigation;
+      //const { Users } = this.props.navigation;
+      //const { navigate } = this.props.navigation;
        return (
             <View style={styles.container}>
                 <TextInput
@@ -55,8 +60,8 @@ export default class LoginForm extends Component {
                     ref={(input)=> this.passwordInput=input}
                 />
                 <Button
-                onPress={() => navigate('Users')}
-                title="Open Users"
+                onPress={() => this.props.navigation.navigate('Users')}
+                title="Users"
                 />
                 <TouchableOpacity
                     onPress={() => this.onLoginStarted.bind(this)}//this.props.OnLoginStarted}
@@ -68,9 +73,14 @@ export default class LoginForm extends Component {
        );
   }
 }
-LoginForm.propTypes = {
+/*LoginForm.propTypes = {
      onLoginStarted: PropTypes.func,//.isRequired,
- };
+ };*/
+
+/*const LoginForm = StackNavigator({
+  Home: {screen: LoginForm1 },
+  Users: {screen: Users, },
+}) ;*/
 
 const styles=StyleSheet.create({
  container :{
@@ -80,7 +90,7 @@ const styles=StyleSheet.create({
     height:40,
     backgroundColor:'rgba(255,255,255,0.2)',
     marginBottom:10,
-    color:'white',
+    color:'black',
     paddingHorizontal:10,
     fontSize:20
     },
@@ -97,4 +107,3 @@ const styles=StyleSheet.create({
  });
 
 AppRegistry.registerComponent('LoginForm', () => LoginForm);
-*/

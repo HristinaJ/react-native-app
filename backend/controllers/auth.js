@@ -10,8 +10,8 @@ const transformFacebookProfile = (profile) => ({
 	oauth_id: profile.id,
   	name: profile.name,
   	avatar: profile.picture.data.url,
-  	//email: profile.email,
-  	//login.username: profile.displayName,
+  	email: profile.email,
+  	username: profile.displayName,
 });
 
 // Transform Google profile into user object

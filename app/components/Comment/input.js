@@ -46,7 +46,7 @@ export default class Input extends Component {
         <View style={styles.container}>
           <TextInput
             placeholder="Add a comment..."
-            keyboardType="twitter" // keyboard with no return button
+            keyboardType="email-address"
             autoFocus={true} // focus and show the keyboard
             style={styles.input}
             value={this.state.text}
@@ -78,7 +78,11 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 40,
-    fontSize: 15,
+    backgroundColor:'rgba(255,255,255,0.2)',
+    marginBottom:10,
+    color:'black',
+    paddingHorizontal:10,
+    fontSize: 20,
   },
   button: {
     height: 40,

@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 var userSchema = new Schema({
-    /*oauth_id: {
+    oauth_id: {
 		type: String,
 		unique: true,
 		index: true,
@@ -15,15 +15,13 @@ var userSchema = new Schema({
       postcode: String,
     },
     email: String,
-    login: {
-      username: String,
-      password: String,
-    },
+    username: String,
+    password: String,
     phone: String,
     avatar: String,
     days: Array,
-    skills: Array,*/
-    gender: String,
+    skills: Array,
+    /*gender: String,
     name: {
       title: String,
       first: String,
@@ -59,7 +57,7 @@ var userSchema = new Schema({
     },
     nat: String,
     days: Array,
-    times: Array,
+    times: Array,*/
   });
 
 export default mongoose.model('user', userSchema);

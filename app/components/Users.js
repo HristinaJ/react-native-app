@@ -5,12 +5,14 @@ import {
   RefreshControl,
   ScrollView,
   StyleSheet,
+  AppRegistry,
   View
 } from 'react-native';
 import navigator from 'react-native-deprecated-custom-components';
 import UserPoster from './UserPoster';
 import UserPopup from './UserPopup';
 import Confirmation from './Confirmation';
+import './Login/LoginForm';
 
 @connect(
   state => ({
@@ -22,7 +24,14 @@ import Confirmation from './Confirmation';
   }),
 )
 
-export default class Users extends Component {
+export default class Users extends React.Component {
+
+static navigationOptions = ({navigation}) => {
+        const {state, navigate} = navigation;
+        return {
+            title: "Users",
+        };
+    };
     constructor(props) {
        super(props);
        //   this.bookTicket = this.bookTicket.bind(this);
@@ -35,6 +44,7 @@ export default class Users extends Component {
     chosenDay: 0,       // choose first day by default
     // Time chosen by user
     chosenTime: null,
+    code: null,
   }
 
   openUser = (user) => {
@@ -58,27 +68,28 @@ export default class Users extends Component {
     });
   }
 
-  chooseTime = (time) => {
+  chooseTime = (skill) => {
     this.setState({
-      chosenTime: time,
+      chosenTime: skill,
     });
   }
 
   bookTicket = () => {
     // Make sure they selected time 
-    if (!this.state.chosenTime) {
+    /*if (!this.state.chosenTime) {
       alert('Please select show time');
-    } else {
+    } else {*/
       // Close popup
       this.closeUser();
       // Navigate away to Confirmation route
-      this.props.navigator.push({
-        name: 'confirmation',
-        // Generate random string
-        code: Math.random().toString(36).substring(6).toUpperCase(),
-      });
-    }
-  }
+      this.props.navigation.navigate('Confirmation', code = Math.random().toString(36).substring(6).toUpperCase(),);
+      //this.props.navigation.navigate('Reviews');
+    //}
+  };
+
+    /*static navigationOptions = {
+        title: 'Users',
+    };*/
 
   // Until here
   render() {
@@ -143,6 +154,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',       // allow multiple rows
   },
 });
+
+//AppRegistry.registerComponent('Users', () => Users);
 /*import React from 'react';
 import {
     View,

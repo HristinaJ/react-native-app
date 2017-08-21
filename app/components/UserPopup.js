@@ -226,7 +226,7 @@ export default class UserPopup extends Component {
       onBook
     } = this.props;
     // Pull out user data days, times
-    const { name, location, picture, days, times } = user || {};
+    const { name, location, avatar, days, skills } = user || {};
     //const days = days;
     //const times = times;
     // Render nothing if not visible
@@ -255,12 +255,11 @@ export default class UserPopup extends Component {
             >
             {/* Poster */}
               <View style={[styles.imageContainer, this.getStyles().imageContainer]}>
-                <Image source={{ uri: picture.large }} style={styles.image} />
+                <Image source={{ uri: avatar }} style={styles.image} />
               </View>
               {/* Title and place */}
               <View style={[styles.userInfo, this.getStyles().userInfo]}>
-                <Text style={[styles.name, this.getStyles().name]}>{name.first}</Text>
-                <Text style={styles.name} numberOfLines={1}>{name.last}</Text>
+                <Text style={[styles.name, this.getStyles().name]}>{name}</Text>
                 <Text style={styles.place}>{location.street},</Text>
                 <Text style={styles.place}>{location.city} {location.state}</Text>
               </View>
@@ -279,7 +278,7 @@ export default class UserPopup extends Component {
               <Text style={styles.sectionHeader}>Showtime</Text>
               {/* TODO: Add show time options here */}
               <Options
-                values={times}
+                values={skills}
                 chosen={chosenTime}
                 onChoose={onChooseTime}
               />
@@ -292,7 +291,7 @@ export default class UserPopup extends Component {
               style={styles.buttonContainer}
               onPress={this.props.onBook}
             >
-              <Text style={styles.button}>Hire {name.first}</Text>
+              <Text style={styles.button}>Contact {name}</Text>
             </TouchableHighlight>
           </View>
 

@@ -4,6 +4,13 @@ import Comments from './Comment/list';
 
 export default class Reviews extends Component {
 
+    static navigationOptions = ({navigation}) => {
+                const {state, navigate} = navigation;
+                return {
+                    title: "Messages",
+                };
+            };
+
   state = {
     user: undefined, // not logged in yet
   };

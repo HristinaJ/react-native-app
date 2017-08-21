@@ -27,14 +27,13 @@ export default class UserPoster extends Component {
     onOpen: PropTypes.func.isRequired,
   }
   render() {
-    const { user, user: { name, location, picture }, onOpen } = this.props;
+    const { user, user: { name, location, avatar }, onOpen } = this.props;
     return (
       <TouchableOpacity style={styles.container} onPress={() => onOpen(user)}>
         <View style={styles.imageContainer}>
-          <Image source={{ uri: picture.large }} style={styles.image} />
+          <Image source={{ uri: avatar }} style={styles.image} />
         </View>
-        <Text style={styles.name} numberOfLines={1}>{name.first}</Text>
-        <Text style={styles.name} numberOfLines={1}>{name.last}</Text>
+        <Text style={styles.name} numberOfLines={1}>{name}</Text>
         <Text style={styles.place} numberOfLines={1}>{location.city}, {location.state}</Text>
       </TouchableOpacity>
     );
@@ -67,3 +66,5 @@ const styles = StyleSheet.create({
     lineHeight: 14,
   },
 });
+
+//<Text style={styles.name} numberOfLines={1}>{name.last}</Text>
