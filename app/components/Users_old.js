@@ -1,3 +1,4 @@
+//Script used earlier to fetch users from data.js
 /*import React, { Component } from 'react';
 import demoData from './data';
 import Row from './Row'

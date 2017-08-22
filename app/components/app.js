@@ -12,7 +12,7 @@ import Reviews from './reviews';
 import Comments from './Comment/list';
 import { Tabs } from './router';
 
-const RouteMapper = (route, NavigationExperimental) => {
+/*const RouteMapper = (route, NavigationExperimental) => {
   if (route.name === 'users') {
     return <Users NavigationExperimental={NavigationExperimental.Navigator} />;
   }
@@ -25,7 +25,7 @@ const RouteMapper = (route, NavigationExperimental) => {
   else if (route.name === 'reviews') {
           return <Reviews/>;
         }
-};
+};*/
 
 const store = createStore(reducer, {}, applyMiddleware(apiMiddleware));
 

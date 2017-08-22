@@ -12,7 +12,6 @@ import Input from './input';
 export default class List extends Component {
 
   static propTypes = {
-    // User object shape
     user: PropTypes.shape({
       _id: PropTypes.string.isRequired,
     }).isRequired,
@@ -92,7 +91,6 @@ export default class List extends Component {
       </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({

@@ -18,19 +18,19 @@ export default class LoginForm1 extends Component {
          super(props, context);
    }
 
-     onChange(text) {
-             this.task = text;
-         }
+   onChange(text) {
+         this.task = text;
+   }
 
-     onLoginPressed() {
-             this.props.onLoginStarted()
-         }
+   onLoginPressed() {
+         this.props.onLoginStarted()
+   }
 
-         onLoginStarted() {
-                 this.props.nav.push({
-                     name: 'users'
-                 });
-             }
+   onLoginStarted() {
+         this.props.nav.push({
+              name: 'users'
+         });
+   }
         /*static navigationOptions = {
             title: 'Login',
           };*/
@@ -60,16 +60,15 @@ export default class LoginForm1 extends Component {
                     ref={(input)=> this.passwordInput=input}
                 />
                 <Button
-                onPress={() => this.props.navigation.navigate('Users')}
+                    onPress={() => this.props.navigation.navigate('Users')}
                 title="Users"
                 />
                 <TouchableOpacity
-                    onPress={() => this.onLoginStarted.bind(this)}//this.props.OnLoginStarted}
+                    onPress={() => this.onLoginStarted.bind(this)}
                     style={styles.buttonContainer} >
                         <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
             </View>
-
        );
   }
 }

@@ -21,7 +21,6 @@ import router from './router';
 mongoose.connect('mongodb://localhost/users');
 
 mongoose.Promise = global.Promise;
-//mongoose.connect('mongodb://localhost/react-native-comments');
 
 // Initialize http server
 const app = express();

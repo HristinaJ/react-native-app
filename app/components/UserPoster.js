@@ -11,19 +11,12 @@ import { defaultStyles } from './styles';
 
 // Get screen dimensions
 const { width, height } = Dimensions.get('window');
-// How many posters we want to have in each row and column
+
 const cols = 3, rows = 3;
 
 export default class UserPoster extends Component {
-  // Component prop types
   static propTypes = {
-    // Movie object with title, place, and poster
     user: PropTypes.object.isRequired,
-    //days
-    //days: propTypes.array,
-    //times
-    //times: propTypes.times,
-    // Called when user taps on a poster
     onOpen: PropTypes.func.isRequired,
   }
   render() {
@@ -48,11 +41,11 @@ const styles = StyleSheet.create({
     width: (width - 10) / cols - 10,
   },
   imageContainer: {
-    flex: 1,                          // take up all available space
+    flex: 1,
   },
   image: {
-    borderRadius: 10,                 // rounded corners
-    ...StyleSheet.absoluteFillObject, // fill up all space in a container
+    borderRadius: 10,
+    ...StyleSheet.absoluteFillObject,
   },
   title: {
     ...defaultStyles.text,
@@ -66,5 +59,3 @@ const styles = StyleSheet.create({
     lineHeight: 14,
   },
 });
-
-//<Text style={styles.name} numberOfLines={1}>{name.last}</Text>

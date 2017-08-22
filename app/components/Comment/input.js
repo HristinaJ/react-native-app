@@ -14,19 +14,13 @@ export default class Input extends Component {
   };
 
   state = {
-    text: undefined, // user's input
+    text: undefined,
   };
 
-  // Update state when input changes
   onChangeText = (text) => this.setState({ text });
 
-  // Handle return press on the keyboard
-  // NOTE: You don't really need it for this example, because
-  // we're using a keyboard without return button, but I left it here
-  // in case you'd want to switch to a different keyboard
   onSubmitEditing = ({ nativeEvent: { text } }) => this.setState({ text }, this.submit);
 
-  // Call this.props.onSubmit handler and pass the comment
   submit = () => {
     const { text } = this.state;
     if (text) {
@@ -39,8 +33,6 @@ export default class Input extends Component {
 
   render() {
     return (
-      // This moves children view with input field and submit button
-      // up above the keyboard when it's active
         <View style={styles.container}>
           <TextInput
             placeholder="Add a comment..."
@@ -60,7 +52,6 @@ export default class Input extends Component {
         </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({

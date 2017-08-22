@@ -7,18 +7,14 @@ import {
 } from 'react-native';
 import { defaultStyles } from './styles';
 
-// Colors for smooth transition when user chosess an option
 const colorDefault = 'rgba(255, 255, 255, 1)',  // white
   colorSelected = 'rgba(103,58,183, 1)';        // purple
 
 export default class Options extends Component {
 
   static propTypes = {
-    // Value to display
     value: PropTypes.string.isRequired,
-    // Wheter this values was chosen by user or not
     isChosen: PropTypes.bool.isRequired,
-    // Gets called when user choses this value
     onChoose: PropTypes.func.isRequired,
   }
 
@@ -34,7 +30,6 @@ export default class Options extends Component {
     }
   }
 
-  // Handle isChosen prop changes
   componentWillReceiveProps(nextProps) {
     if (!this.props.isChosen && nextProps.isChosen) {
       this.animateSelect();

@@ -18,22 +18,20 @@ export default class skills extends Component {
       isChecked: false,
     };
   }
+
   handlePressCheckedBox = (checked) => {
     this.setState({
       isChecked: checked,
     });
   }
-// constructor(props, context) {
-//     super(props, context);
-//   }
+
   _handlePress() {
     console.log('Pressed!');
   }
+
   onPress(){
     console.log('Pressed');
   }
-
-
 
   render() {
     return (
@@ -43,75 +41,69 @@ export default class skills extends Component {
           </View>
 
         <ScrollView style={{ flex: 1, padding: 20 }}>
-            <CheckBox style={{  borderWidth: 3,borderColor: '#719DF0', margin: 5}}
-            label="Bathing"
-            fontSize={30}
-            checked={this.state.isChecked}
-            onPress={this.handlePressCheckedBox}
-            />
-            <CheckBox style={{  borderWidth: 3,borderColor: '#719DF0', margin: 5}}
-            label="Deep Cleaning"
-            fontSize={30}
-            checked={this.state.isChecked}
-            onPress={this.handlePressCheckedBox}
-            />
-             <CheckBox style={{  borderWidth: 3,borderColor: '#719DF0', margin: 5}}
-            label="Aizheimers"
-            fontSize={30}
-            checked={this.state.isChecked}
-            onPress={this.handlePressCheckedBox}
-            />
-             <CheckBox style={{ borderWidth: 3,borderColor: '#719DF0', margin: 5}}
-            label="COPD"
-            fontSize={30}
-            checked={this.state.isChecked}
-            onPress={this.handlePressCheckedBox}
-            />
-             <CheckBox style={{ borderWidth: 3,borderColor: '#719DF0', margin: 5}}
-            label="Dementia"
-            fontSize={30}
-            checked={this.state.isChecked}
-            onPress={this.handlePressCheckedBox}
-            />
-             <CheckBox style={{borderWidth: 3,borderColor: '#719DF0', margin: 5}}
-            label="Hospice"
-            fontSize={30}
-            checked={this.state.isChecked}
-            onPress={this.handlePressCheckedBox}
-            />
-             <CheckBox style={{ borderWidth: 3,borderColor: '#719DF0', margin: 5}}
-            label="Incontinence"
-            fontSize={30}
-            checked={this.state.isChecked}
-            onPress={this.handlePressCheckedBox}
-            />
-             <CheckBox style={{ borderWidth: 3,borderColor: '#719DF0', margin: 5}}
-            label="Hoyer Lift"
-            fontSize={30}
-            checked={this.state.isChecked}
-            onPress={this.handlePressCheckedBox}
-            />
-
+           <CheckBox style={{  borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+              label="Bathing"
+              fontSize={30}
+              checked={this.state.isChecked}
+              onPress={this.handlePressCheckedBox}
+           />
+           <CheckBox style={{  borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+              label="Deep Cleaning"
+              fontSize={30}
+              checked={this.state.isChecked}
+              onPress={this.handlePressCheckedBox}
+           />
+           <CheckBox style={{  borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+              label="Aizheimers"
+              fontSize={30}
+              checked={this.state.isChecked}
+              onPress={this.handlePressCheckedBox}
+           />
+           <CheckBox style={{ borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+              label="COPD"
+              fontSize={30}
+              checked={this.state.isChecked}
+              onPress={this.handlePressCheckedBox}
+           />
+           <CheckBox style={{ borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+              label="Dementia"
+              fontSize={30}
+              checked={this.state.isChecked}
+              onPress={this.handlePressCheckedBox}
+           />
+           <CheckBox style={{borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+              label="Hospice"
+              fontSize={30}
+              checked={this.state.isChecked}
+              onPress={this.handlePressCheckedBox}
+           />
+           <CheckBox style={{ borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+              label="Incontinence"
+              fontSize={30}
+              checked={this.state.isChecked}
+              onPress={this.handlePressCheckedBox}
+           />
+           <CheckBox style={{ borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+              label="Hoyer Lift"
+              fontSize={30}
+              checked={this.state.isChecked}
+              onPress={this.handlePressCheckedBox}
+           />
         </ScrollView>
-
         <TouchableHighlight onPress={this.onPress}>
           <View style={styles.button}>
                <Text style={styles.addButtonText}>Add</Text>
           </View>
         </TouchableHighlight>
-
-          <View style={styles.footer}>
-              {/*<Button
+        <View style={styles.footer}>
+           {/*<Button
                style={{fontSize: 40, color: '#719DF0', borderRadius: 50, borderColor: '#ccc'}}
                  styleDisabled={{color: 'red'}}
                  onPress={() => this._handlePress()}>
                   Add!
-              </Button>*/}
-
-
-          </View>
-      </View>
-
+           </Button>*/}
+        </View>
+     </View>
     );
   }
 }
@@ -119,7 +111,6 @@ export default class skills extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
   },
 
   header:{
@@ -139,25 +130,18 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 100,
   },
-  // footer:{
-  //   position: 'absolute',
-  //   alignItems:'center',
-  //   bottom: 30,
-  //   left: 10,
-  //   right: 10,
-  // },
-   button: {
-     position:'relative',
-     alignItems:'center',
-     bottom: 30,
-     left: 30,
-     right: 10,
-     backgroundColor: '#719DF0',
-     marginTop: 50,
-     width: 300,
-     height: 80,
-     borderRadius: 50,
-   },
+  button: {
+    position:'relative',
+    alignItems:'center',
+    bottom: 30,
+    left: 30,
+    right: 10,
+    backgroundColor: '#719DF0',
+    marginTop: 50,
+    width: 300,
+    height: 80,
+    borderRadius: 50,
+  },
   addButtonText:{
     color: '#fff',
     fontSize:25,

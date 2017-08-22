@@ -1,3 +1,4 @@
+//Unused data storage because now we get users from database
 import moment from 'moment';
 
 // Hardcode days for the sake of simplicity

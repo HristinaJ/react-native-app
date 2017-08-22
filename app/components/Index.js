@@ -1,3 +1,4 @@
+//Another unused script created for testing navigation
 import React, { Component } from 'react';
 //import { StackNavigator } from 'react-navigation';
 import { createStore, applyMiddleware } from 'redux';

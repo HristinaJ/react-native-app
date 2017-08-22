@@ -21,19 +21,8 @@ import SafariView from 'react-native-safari-view';
 import { Card, Navigation } from 'react-router-navigation'
 import CheckBox from 'react-native-icon-checkbox';
 import { get, put } from '../../../api';
-//import { defaultStyles } from '../styles';
 
-@connect(
-  state => ({
-    username: state.username,
-    password: state.password,
-  }),
-  dispatch => ({
-    refresh: () => dispatch({type: 'GET_USER_USERNAME_PASS'}),
-  }),
-)
-
-export default class Login extends React.Component {
+export default class Register extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -107,7 +96,6 @@ export default class Login extends React.Component {
           // Convert response to JSON
           const json = await response.json();
           this.setState({
-            // Push new comment to state before existing ones
             user: [json.user]
           });
           this.props.navigation.navigate('Skills')
@@ -158,26 +146,11 @@ export default class Login extends React.Component {
           gender: 'Male'
         });
         } else {
-            this.setState({
-                      gender: 'Female'
-                    });
+          this.setState({
+          gender: 'Female'
+          });
         }
       }
-
-      // Open URL in a browser
-        openURL = (url) => {
-          // Use SafariView on iOS
-          if (Platform.OS === 'ios') {
-            SafariView.show({
-              url: url,
-              fromBottom: true,
-            });
-          }
-          // Or Linking.openURL on Android
-          else {
-            Linking.openURL(url);
-          }
-        };
 
   render() {
     return (
@@ -208,52 +181,52 @@ export default class Login extends React.Component {
                    value={this.state.email}
                 />
                 <TextInput
-                  placeholder="Address"
-                  placeholderTextColor="rgba(0,0,0,0.7)"
-                  returnKeyType="next"
-                  onSubmitEditing={()=>this.passwordInput.focus()}
-                  keyboardType="email-address"
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  style={styles.input}
-                  onChangeText={(street) => this.setState({street})}
-                  value={this.state.street}
+                   placeholder="Address"
+                   placeholderTextColor="rgba(0,0,0,0.7)"
+                   returnKeyType="next"
+                   onSubmitEditing={()=>this.passwordInput.focus()}
+                   keyboardType="email-address"
+                   autoCapitalize="none"
+                   autoCorrect={false}
+                   style={styles.input}
+                   onChangeText={(street) => this.setState({street})}
+                   value={this.state.street}
                 />
                 <TextInput
-                  placeholder="City"
-                  placeholderTextColor="rgba(0,0,0,0.7)"
-                  returnKeyType="next"
-                  onSubmitEditing={()=>this.passwordInput.focus()}
-                  keyboardType="email-address"
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  style={styles.input}
-                  onChangeText={(city) => this.setState({city})}
-                  value={this.state.city}
+                   placeholder="City"
+                   placeholderTextColor="rgba(0,0,0,0.7)"
+                   returnKeyType="next"
+                   onSubmitEditing={()=>this.passwordInput.focus()}
+                   keyboardType="email-address"
+                   autoCapitalize="none"
+                   autoCorrect={false}
+                   style={styles.input}
+                   onChangeText={(city) => this.setState({city})}
+                   value={this.state.city}
                 />
                 <TextInput
-                  placeholder="State"
-                  placeholderTextColor="rgba(0,0,0,0.7)"
-                  returnKeyType="next"
-                  onSubmitEditing={()=>this.passwordInput.focus()}
-                  keyboardType="email-address"
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  style={styles.input}
-                  onChangeText={(city) => this.setState({city})}
-                  value={this.state.state}
+                   placeholder="State"
+                   placeholderTextColor="rgba(0,0,0,0.7)"
+                   returnKeyType="next"
+                   onSubmitEditing={()=>this.passwordInput.focus()}
+                   keyboardType="email-address"
+                   autoCapitalize="none"
+                   autoCorrect={false}
+                   style={styles.input}
+                   onChangeText={(city) => this.setState({city})}
+                   value={this.state.state}
                 />
                 <TextInput
-                  placeholder="Username"
-                  placeholderTextColor="rgba(0,0,0,0.7)"
-                  returnKeyType="next"
-                  onSubmitEditing={()=>this.passwordInput.focus()}
-                  keyboardType="email-address"
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  style={styles.input}
-                  onChangeText={(username) => this.setState({username})}
-                  value={this.state.username}
+                   placeholder="Username"
+                   placeholderTextColor="rgba(0,0,0,0.7)"
+                   returnKeyType="next"
+                   onSubmitEditing={()=>this.passwordInput.focus()}
+                   keyboardType="email-address"
+                   autoCapitalize="none"
+                   autoCorrect={false}
+                   style={styles.input}
+                   onChangeText={(username) => this.setState({username})}
+                   value={this.state.username}
                 />
                 <TextInput
                    placeholder="Password"
@@ -278,31 +251,31 @@ export default class Login extends React.Component {
                    value={this.state.phone}
                 />
             <View style={styles.buttons}>
-            <CheckBox
-                label="Male"
-                size={30}
-                checked={this.state.isRadioSelected}
-                onPress={this.handleSelectedRadionButton}
-                uncheckedIconName="radio-button-unchecked"
-                checkedIconName="radio-button-checked"
-            />
-            <CheckBox
-                label="Female"
-                size={30}
-                checked={!this.state.isRadioSelected}
-                onPress={this.handleSelectedRadionButton}
-                uncheckedIconName="radio-button-unchecked"
-                checkedIconName="radio-button-checked"
-            />
-              <Icon.Button
-                name="arrow-right"
-                onPress={() => this.props.navigation.navigate('Skills')}
-                {...iconStyles}
-              >
-              Continue
-              </Icon.Button>
+                <CheckBox
+                  label="Male"
+                  size={30}
+                  checked={this.state.isRadioSelected}
+                  onPress={this.handleSelectedRadionButton}
+                  uncheckedIconName="radio-button-unchecked"
+                  checkedIconName="radio-button-checked"
+                />
+                <CheckBox
+                  label="Female"
+                  size={30}
+                  checked={!this.state.isRadioSelected}
+                  onPress={this.handleSelectedRadionButton}
+                  uncheckedIconName="radio-button-unchecked"
+                  checkedIconName="radio-button-checked"
+                />
+                <Icon.Button
+                  name="arrow-right"
+                  onPress={() => this.props.navigation.navigate('Skills')}
+                  {...iconStyles}
+                >
+                  Continue
+                </Icon.Button>
             </View>
-            </ScrollView>
+           </ScrollView>
           </View>
         )
     }
@@ -348,90 +321,22 @@ export default class Login extends React.Component {
         margin: 20,
         marginBottom: 30,
       },
-      input :{
-          height:40,
-          backgroundColor:'rgba(255,255,255,0.2)',
-          marginBottom:10,
-          color:'black',
-          paddingHorizontal:10,
-          fontSize:17,
-          },
-       buttonContainer :{
-          backgroundColor:'#2c3e50',
-          paddingVertical:15
-          },
-       buttonText:{
-          textAlign: 'center',
-          color:'#FFFFFF',
-          fontWeight: '600',
-          fontSize: 17
-          },
-});
-//AppRegistry.registerComponent('Login', () => Login);
-/*render() {
-    return (
-        
-        <View style={styles.container} >
-            <View style={styles.logoContainer}>
-                <Image style={styles.logo}
-                source={require('NewApp/images/logo.png')}
-                />
-                <Text style={styles.textStyle}>Long Life</Text>
-            </View>
-            <View style={styles.formContainer}>
-            <LoginForm/>
-            </View>
-        </View>
-
-         );
-  }
-}
-      /*container :{
-          flex: 1,
-          backgroundColor:'#34495e'
-
-      },*/
-      /*logoContainer :{
-          alignItems: 'center',
-          flexGrow: 1,
-          justifyContent:'center'
-          },
-      logo :{
-          width: 100,
-          height: 100
+      input: {
+        height:40,
+        backgroundColor:'rgba(255,255,255,0.2)',
+        marginBottom:10,
+        color:'black',
+        paddingHorizontal:10,
+        fontSize:17,
       },
-      textStyle:{
-          //...defaultStyles.text,
-          fontSize: 20,
-          fontWeight: 'bold',
-          color : 'white',
-          marginTop: 10,
-          textAlign:'center',
-          opacity: 0.9
-      }
-    });*/
-
-    /*handleOpenURL = ({ url }) => {
-              // Extract stringified user string out of the URL
-              const [, user_string] = url.match(/user=([^#]+)/);
-              this.setState({
-                // Decode the user string and parse it into JSON
-                user: JSON.parse(decodeURI(user_string))
-              });
-              if (Platform.OS === 'ios') {
-                SafariView.dismiss();
-              }
-            };*/
-
-            /*<View style={styles.content}>
-                          <Text style={styles.header}>
-                            Welcome Stranger!
-                          </Text>
-                          <View style={styles.avatar}>
-                            <Icon name="user-circle" size={100} color="rgba(0,0,0,.09)" />
-                          </View>
-                          <Text style={styles.text}>
-                            Please log in to continue {'\n'}
-                            to the awesomness
-                          </Text>
-                        </View>*/
+      buttonContainer: {
+        backgroundColor:'#2c3e50',
+        paddingVertical:15
+      },
+      buttonText:{
+        textAlign: 'center',
+        color:'#FFFFFF',
+        fontWeight: '600',
+        fontSize: 17
+      },
+});

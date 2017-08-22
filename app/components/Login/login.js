@@ -262,89 +262,21 @@ export default class Login extends React.Component {
         marginBottom: 30,
       },
       input :{
-          height:40,
-          backgroundColor:'rgba(255,255,255,0.2)',
-          marginBottom:10,
-          color:'black',
-          paddingHorizontal:10,
-          fontSize:17,
-          },
-       buttonContainer :{
-          backgroundColor:'#2c3e50',
-          paddingVertical:15
-          },
-       buttonText:{
-          textAlign: 'center',
-          color:'#FFFFFF',
-          fontWeight: '600',
-          fontSize: 17
-          },
-});
-//AppRegistry.registerComponent('Login', () => Login);
-/*render() {
-    return (
-        
-        <View style={styles.container} >
-            <View style={styles.logoContainer}>
-                <Image style={styles.logo}
-                source={require('NewApp/images/logo.png')}
-                />
-                <Text style={styles.textStyle}>Long Life</Text>
-            </View>
-            <View style={styles.formContainer}>
-            <LoginForm/>
-            </View>
-        </View>
-
-         );
-  }
-}
-      /*container :{
-          flex: 1,
-          backgroundColor:'#34495e'
-
-      },*/
-      /*logoContainer :{
-          alignItems: 'center',
-          flexGrow: 1,
-          justifyContent:'center'
-          },
-      logo :{
-          width: 100,
-          height: 100
+        height:40,
+        backgroundColor:'rgba(255,255,255,0.2)',
+        marginBottom:10,
+        color:'black',
+        paddingHorizontal:10,
+        fontSize:17,
       },
-      textStyle:{
-          //...defaultStyles.text,
-          fontSize: 20,
-          fontWeight: 'bold',
-          color : 'white',
-          marginTop: 10,
-          textAlign:'center',
-          opacity: 0.9
-      }
-    });*/
-
-    /*handleOpenURL = ({ url }) => {
-              // Extract stringified user string out of the URL
-              const [, user_string] = url.match(/user=([^#]+)/);
-              this.setState({
-                // Decode the user string and parse it into JSON
-                user: JSON.parse(decodeURI(user_string))
-              });
-              if (Platform.OS === 'ios') {
-                SafariView.dismiss();
-              }
-            };*/
-
-            /*<View style={styles.content}>
-                          <Text style={styles.header}>
-                            Welcome Stranger!
-                          </Text>
-                          <View style={styles.avatar}>
-                            <Icon name="user-circle" size={100} color="rgba(0,0,0,.09)" />
-                          </View>
-                          <Text style={styles.text}>
-                            Please log in to continue {'\n'}
-                            to the awesomness
-                          </Text>
-                        </View>*/
+      buttonContainer :{
+        backgroundColor:'#2c3e50',
+        paddingVertical:15
+      },
+      buttonText:{
+        textAlign: 'center',
+        color:'#FFFFFF',
+        fontWeight: '600',
+        fontSize: 17
+      },
+});

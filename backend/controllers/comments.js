@@ -7,7 +7,7 @@ const userRelation = {
 };
 
 export const list = async (req, res, next) => {
-	// Get all comments and populate User models
+    // Get all comments and populate User models
   const comments = await Comment.find()
     .sort({ 'created': -1 })
     .populate(userRelation)

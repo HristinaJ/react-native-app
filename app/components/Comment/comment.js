@@ -23,11 +23,8 @@ export default class Comment extends PureComponent {
   };
 
   render() {
-    // Pull comment object out of props
     const { comment } = this.props;
-    // Pull data needed to display a comment out of comment object
     const { content, created, user } = comment;
-    // Pull user name and avatar out of user object
     const { name, avatar } = user;
     return (
       <View style={styles.container}>
