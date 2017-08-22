@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import {
   Image,
   Linking,
@@ -10,6 +11,7 @@ import {
   TextInput,
   TouchableOpacity,
   TouchableHighlight,
+  AsyncStorage
 } from 'react-native';
 import NavigationExperimental from 'react-native-deprecated-custom-components';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -18,10 +20,25 @@ import SafariView from 'react-native-safari-view';
 import { Card, Navigation } from 'react-router-navigation'
 //import { defaultStyles } from '../styles';
 import LoginForm from './LoginForm';
+import { API1 } from '../redux';
+
+@connect(
+  state => ({
+    username: state.username,
+    password: state.password,
+  }),
+  dispatch => ({
+    refresh: () => dispatch({type: 'GET_USER_USERNAME_PASS'}),
+  }),
+)
 
 export default class Login extends React.Component {
     constructor(props, context) {
         super(props, context);
+        this.state = {
+            username: '',
+            password: '',
+            };
     }
 
     static navigationOptions = ({navigation}) => {
@@ -93,6 +110,32 @@ export default class Login extends React.Component {
           }
         };
 
+    login = () => {
+        fetch('10.0.2.2:3000/users.json', {
+        method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+            username: this.state.username,
+            password: this.state.password,
+            })
+        })
+        .then((response) => response.json())
+        .then((res) => {
+            if(res.success === true) {
+                var username = res.username;
+                AsyncStorage.setItem('username', username);
+                this.props.navigation.navigate('Confirmation');
+            }
+            else {
+                alert(res.message);
+            }
+        })
+        .done();
+    };
+
   render() {
     return (
           <View style={styles.container}>
@@ -106,49 +149,55 @@ export default class Login extends React.Component {
 
             </View>
             <View style={styles.container}>
-                            <TextInput
-                                placeholder="Username / Email"
-                                placeholderTextColor="rgba(255,255,255,0.7)"
-                                returnKeyType="next"
-                                onSubmitEditing={()=>this.passwordInput.focus()}
-                                keyboardType="email-address"
-                                autoCapitalize="none"
-                                autoCorrect={false}
-                                style={styles.input}
-                                onChangeText={this.onChange.bind(this)}
-                            />
-                            <TextInput
-                                placeholder="Password"
-                                placeholderTextColor="rgba(255,255,255,0.7)"
-                                secureTextEntry
-                                returnKeyType="go"
-                                style={styles.input}
-                                ref={(input)=> this.passwordInput=input}
-                            />
-                            <Icon.Button
-                                name="user"
-                                onPress={() => this.props.navigation.navigate('Users')}
-                                title="Login"
-                                {...iconStyles}
-                            >
-                            <Text style={styles.buttonText}>
-                                Login
-                            </Text>
-                            </Icon.Button>
-                            <Text style={styles.text}>
-                                OR
-                            </Text>
-                            <Icon.Button
-                                name="users"
-                                onPress={() => this.props.navigation.navigate('Users')}
-                                title="Register"
-                                {...iconStyles}
-                            >
-                            <Text style={styles.buttonText}>
-                                Register
-                            </Text>
-                            </Icon.Button>
-                        </View>
+                <TextInput
+                   placeholder="Username / Email"
+                   placeholderTextColor="rgba(0,0,0,0.7)"
+                   returnKeyType="next"
+                   onSubmitEditing={()=>this.passwordInput.focus()}
+                   keyboardType="email-address"
+                   autoCapitalize="none"
+                   autoCorrect={false}
+                   style={styles.input}
+                   onChangeText={(username) => this.setState({username})}
+                   value={this.state.username}
+                />
+                <TextInput
+                   placeholder="Password"
+                   placeholderTextColor="rgba(0,0,0,0.7)"
+                   secureTextEntry
+                   returnKeyType="go"
+                   style={styles.input}
+                   ref={(input)=> this.passwordInput=input}
+                   onChangeText={(password) => this.setState({password})}
+                   value={this.state.password}
+                />
+            </View>
+            <View style={styles.container}>
+                <Icon.Button
+                   name="user"
+                   onPress={this.login}
+                   title="Login"
+                   {...iconStyles}
+                   alignItems = "center"
+                >
+                   <Text style={styles.buttonText}>
+                        Login
+                   </Text>
+                </Icon.Button>
+                   <Text style={styles.text}>
+                        OR
+                   </Text>
+                <Icon.Button
+                   name="users"
+                   onPress={() => this.props.navigation.navigate('Register')}
+                   title="Register"
+                   {...iconStyles}
+                >
+                   <Text style={styles.buttonText}>
+                       Register
+                   </Text>
+                </Icon.Button>
+            </View>
             <View style={styles.buttons}>
               <Icon.Button
                 name="facebook"
@@ -218,7 +267,7 @@ export default class Login extends React.Component {
           marginBottom:10,
           color:'black',
           paddingHorizontal:10,
-          fontSize:20
+          fontSize:17,
           },
        buttonContainer :{
           backgroundColor:'#2c3e50',
@@ -228,7 +277,7 @@ export default class Login extends React.Component {
           textAlign: 'center',
           color:'#FFFFFF',
           fontWeight: '600',
-          fontSize: 20
+          fontSize: 17
           },
 });
 //AppRegistry.registerComponent('Login', () => Login);

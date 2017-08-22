@@ -7,6 +7,7 @@ import Users from './Users';
 import Confirmation from './Confirmation';
 import Reviews from './reviews';
 import Skills from './skills';
+import Register from './Register/register';
 
 export const UserStack = StackNavigator({
     Users: {
@@ -15,21 +16,45 @@ export const UserStack = StackNavigator({
             title: 'Users',
         },
     },
-    Confirmation: {
-        screen: Confirmation,
+    Reviews: {
+        screen: Reviews,
         navigationOptions: {
-            title: 'Confirmation',
+            title: 'Messages',
+        },
+    },
+});
+
+export const RegisterStack = StackNavigator({
+    Register: {
+        screen: Register,
+        navigationOptions: {
+            title: 'Register',
+        },
+    },
+    Skills: {
+        screen: Skills,
+        navigationOptions: {
+            title: 'Skills',
+        },
+    },
+});
+
+export const LoginStack = StackNavigator({
+    Login: {
+        screen: Login,
+        navigationOptions: {
+            title: 'Login',
+        },
+    },
+    Register: {
+        screen: RegisterStack,
+        navigationOptions: {
+            title: 'Register',
         },
     },
 });
 
 export const Tabs = TabNavigator({
-    Login: {
-        screen: Login,
-        navigationOptions: {
-                tabBarLabel: 'Login',
-                tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor}/>
-            },
-        },
+    Login: { screen: LoginStack, },
     Users: { screen: UserStack, },
 });

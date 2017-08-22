@@ -82,8 +82,8 @@ static navigationOptions = ({navigation}) => {
       // Close popup
       this.closeUser();
       // Navigate away to Confirmation route
-      this.props.navigation.navigate('Confirmation', code = Math.random().toString(36).substring(6).toUpperCase(),);
-      //this.props.navigation.navigate('Reviews');
+      //this.props.navigation.navigate('Confirmation', code = Math.random().toString(36).substring(6).toUpperCase(),);
+      this.props.navigation.navigate('Reviews');
     //}
   };
 

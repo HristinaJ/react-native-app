@@ -115,6 +115,9 @@ app.route('/comments')
   .get(list)
   .put(create);
 
+app.route('/users.json')
+    .put(createUser);
+
 const server = app.listen(3000, () => {
   const { address, port } = server.address();
   console.log(`Listening at http://${address}:${port}`);

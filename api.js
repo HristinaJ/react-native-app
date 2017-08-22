@@ -1,5 +1,5 @@
 // Our API backend's URL
-const API = 'http://10.0.2.2:3000';
+const API = 'http://10.0.2.2:3000/v1';
 
 const headers = {
   'Accept': 'application/json',

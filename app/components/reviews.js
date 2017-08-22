@@ -7,7 +7,7 @@ export default class Reviews extends Component {
     static navigationOptions = ({navigation}) => {
                 const {state, navigate} = navigation;
                 return {
-                    title: "Messages",
+                    title: "Reviews",
                 };
             };
 

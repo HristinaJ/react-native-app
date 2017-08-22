@@ -10,6 +10,8 @@ import {
   Form,
 } from 'react-native';
 import CheckBox from 'react-native-icon-checkbox';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Button } from 'react-native-elements';
 
 export default class Skills extends Component {
 static navigationOptions = ({navigation}) => {
@@ -51,8 +53,8 @@ static navigationOptions = ({navigation}) => {
             <Text style={styles.headerText}>Any special skills required?</Text>
           </View>
 
-        <ScrollView style={{ flex: 1, padding: 20 }}>
-            <CheckBox style={{  borderWidth: 3,borderColor: '#719DF0', margin: 5}}
+        <ScrollView style={{ flex: 1, padding: 20, marginBottom: 20, }}>
+            <CheckBox style={{  borderWidth: 3, borderColor: '#719DF0', margin: 5}}
             label="Cleaning & Housekeeping"
             fontSize={30}
             checked={this.state.isChecked}
@@ -127,28 +129,26 @@ static navigationOptions = ({navigation}) => {
 
         </ScrollView>
 
-        <TouchableHighlight onPress={this.onPress}>
-          <View style={styles.button}>
-               <Text style={styles.addButtonText}>Add</Text>
-          </View>
-        </TouchableHighlight>
-
-          <View style={styles.footer}>
-              {/*<Button
-               style={{fontSize: 40, color: '#719DF0', borderRadius: 50, borderColor: '#ccc'}}
-                 styleDisabled={{color: 'red'}}
-                 onPress={() => this._handlePress()}>
-                  Add!
-              </Button>*/}
-
-
-          </View>
+        <Icon.Button
+             name=""
+             onPress={this.login}
+             title="Login"
+             {...iconStyles}
+             alignItems = "center"
+             >
+             <Text style={styles.buttonText}>
+             Add skills
+             </Text>
+        </Icon.Button>
       </View>
 
     );
   }
 }
-
+const iconStyles = {
+      borderRadius: 0,
+      iconStyle: { paddingVertical: 5 },
+          };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -179,6 +179,16 @@ const styles = StyleSheet.create({
   //   left: 10,
   //   right: 10,
   // },
+  buttonContainer :{
+            backgroundColor:'#2c3e50',
+            paddingVertical:15
+            },
+         buttonText:{
+            textAlign: 'center',
+            color:'#FFFFFF',
+            fontWeight: '600',
+            fontSize: 17
+            },
    button: {
      position:'relative',
      alignItems:'center',

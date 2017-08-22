@@ -34,15 +34,13 @@ export default class Input extends Component {
     } else {
       alert('Please enter your comment first');
     }
+    this.props.navigation.navigate('Confirmation', code = Math.random().toString(36).substring(6).toUpperCase(),);
   };
 
   render() {
     return (
       // This moves children view with input field and submit button
       // up above the keyboard when it's active
-      <KeyboardAvoidingView
-        behavior='position'
-      >
         <View style={styles.container}>
           <TextInput
             placeholder="Add a comment..."
@@ -60,7 +58,6 @@ export default class Input extends Component {
             <Text style={[styles.text, !this.state.text ? styles.inactive : []]}>Post</Text>
           </TouchableOpacity>
         </View>
-      </KeyboardAvoidingView>
     );
   }
 

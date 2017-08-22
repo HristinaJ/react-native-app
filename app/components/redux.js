@@ -11,7 +11,6 @@ export const apiMiddleware = store => next => action => {
   switch (action.type) {
     // In case we receive an action to send an API request
     case 'GET_USER_DATA':
-      // Dispatch GET_MOVIE_DATA_LOADING to update loading state
       store.dispatch({type: 'GET_USER_DATA_LOADING'});
       // Make API call and dispatch appropriate actions when done
       fetch(`${API1}/users.json`)
@@ -25,6 +24,19 @@ export const apiMiddleware = store => next => action => {
           error
         }));
       break;
+    case 'GET_USER_USERNAME_PASS':
+    fetch(`${API1}/users.json`)
+            .then(response => response.json())
+            .then(data => next({
+              type: 'GET_USER_DATA_RECEIVED',
+              username: this.state.username,
+              password: this.state.password,
+            }))
+            .catch(error => next({
+              type: 'GET_USER_DATA_ERROR',
+              error
+            }));
+          break;
     // Do nothing if the action does not interest us
     default:
       break;
