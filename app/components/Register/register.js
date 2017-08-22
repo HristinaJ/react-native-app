@@ -295,7 +295,8 @@ export default class Login extends React.Component {
                 checkedIconName="radio-button-checked"
             />
               <Icon.Button
-                onPress={this.submitUser}
+                name="arrow-right"
+                onPress={() => this.props.navigation.navigate('Skills')}
                 {...iconStyles}
               >
               Continue
